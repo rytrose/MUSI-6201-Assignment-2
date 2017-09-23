@@ -11,4 +11,16 @@ function [zcr] = myZCR(xb)
 
 %% Write your code below:
 
+size_xb = size(xb);
+numBlocks = size_xb(2);
+blockSize = size_xb(1);
+zcr = zeros(1, numBlocks);
+zcr(1) = 0;
+
+i = 2;
+while(i < numBlocks + 1)
+    
+    i = i + 1; 
+end
+
 end
