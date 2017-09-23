@@ -11,4 +11,21 @@ function [specCrest] = mySpectralCrest(xb)
 
 %% Write your code below:
 
+i = 1;
+size_xb = size(xb);
+numBlocks = size_xb(2);
+blockSize = size_xb(1);
+specCrest = zeros(1, numBlocks);
+
+while(i < numBlocks)
+    window = xb(:,i).*myHann(blockSize);
+    mag = abs(fft(window, 2*blockSize));
+    mag = mag(1:blockSize);
+    specCrest(i) = max(mag)/sum(mag); 
+    if(isnan(specCrest(i)))
+        specCrest(i) = 0.0;
+    end
+    i = i + 1;
+end
+
 end
