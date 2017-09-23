@@ -14,3 +14,23 @@ function [featureMatrix] = getMetaData(path, blockSize, hopSize)
 %                   and N is the number of audio files in the directory.
 
 % Write your code below
+files = dir(path);
+numFiles = length(files) - 2
+featureMatrix = zeros(10, numFiles);
+
+i = 1;
+while(i < length(files) + 1)
+    file = files(i);
+    if(~strcmp(file.name, '.') && ~strcmp(file.name, '..'))
+       [x, fs] = audioread(strcat(file.folder, '\' , file.name));
+       fMat = extractFeatures(x, blockSize, hopSize, fs);
+       fMat = aggregateFeaturesPerFile(fMat);
+       featureMatrix(:, i - 2) = fMat;
+    end
+    
+    i = i + 1;
+end
+
+
+
+end
