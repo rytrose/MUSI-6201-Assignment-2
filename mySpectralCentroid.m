@@ -18,7 +18,7 @@ blockSize = size_xb(1);
 frequencies = ((fs/(2*blockSize))*[1:blockSize])';
 specCentroid = zeros(1, numBlocks);
 
-while(i < numBlocks + 1)
+while(i < numBlocks)
     window = xb(:,i).*myHann(blockSize);
     mag = abs(fft(window, 2*blockSize));
     mag = mag(1:blockSize);
