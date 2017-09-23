@@ -11,4 +11,13 @@ function rms = myRMS(xb)
 
 %% Write your code below:
 
+i = 1;
+size_xb = size(xb);
+numBlocks = size_xb(2);
+blockSize = size_xb(1);
+
+while(i < numBlocks)
+    
+end
+
 end

@@ -22,10 +22,9 @@ while(i < numBlocks)
     window = xb(:,i).*myHann(blockSize);
     mag = abs(fft(window, 2*blockSize));
     mag = mag(1:blockSize);
-    specCentroid(i) = sum(frequencies.*mag)/sum(mag);
-    if(ISNAN(specCentroid(i)))
+    specCentroid(i) = sum(frequencies.*mag)/sum(mag); 
+    if(isnan(specCentroid(i)))
         specCentroid(i) = 0.0;
     end
-end
-
+    i = i + 1;
 end
