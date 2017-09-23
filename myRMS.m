@@ -17,6 +17,13 @@ numBlocks = size_xb(2);
 blockSize = size_xb(1);
 
 while(i < numBlocks)
+    window = xb(:,i).*myHann(blockSize);
+    mag = abs(fft(window, 2*blockSize));
+    mag = mag(1:blockSize);
+    energy = mag.^2;
+    mean = (1/blockSize).*sum(energy);
+    rms(i) = sqrt(mean);
+    i = i + 1;
     
 end
 
