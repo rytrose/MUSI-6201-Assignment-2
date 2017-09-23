@@ -1,4 +1,4 @@
-function [featureVect] = extractFeatures(x, blockSize, hopSize, fs)
+function [featureMat] = extractFeatures(x, blockSize, hopSize, fs)
 
 %% Blocks an audio signal and calls the individual feature extraction functions.
 % Once all 5 features are extracted for each block of audio, aggregate the features
@@ -32,5 +32,12 @@ if (m ~= 1 && n ~=1)
     error('Illegal fs');
 end
 %% Write your code below
+blockedAudio = myBlockAudio(x, blockSize, hopSize, fs);
+f1 = mySpectralCentroid(blockedAudio, fs);
+f2 = myRMS(blockedAudio);
+f3 = myZCR(blockedAudio);
+f4 = mySpectralCrest(blockedAudio);
+f5 = mySpectralFlux(blockedAudio);
 
+featureMat = vertcat(f1, f2, f3, f4, f5);
 end
