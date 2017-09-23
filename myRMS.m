@@ -15,6 +15,7 @@ i = 1;
 size_xb = size(xb);
 numBlocks = size_xb(2);
 blockSize = size_xb(1);
+rms = zeros(1, numBlocks);
 
 while(i < numBlocks)
     window = xb(:,i).*myHann(blockSize);
@@ -23,8 +24,7 @@ while(i < numBlocks)
     energy = mag.^2;
     mean = (1/blockSize).*sum(energy);
     rms(i) = sqrt(mean);
-    i = i + 1;
-    
+    i = i + 1; 
 end
 
 end
