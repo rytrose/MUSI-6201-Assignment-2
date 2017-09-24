@@ -1,4 +1,4 @@
-function [normFeatureMatrix] = zscoreNormalize(featureMatrix)
+function [normFeatureMatrix] = zScoreNormalize(featureMatrix)
 
 %% Performs z-score normalization over the input featureMatrix
 %
@@ -15,7 +15,7 @@ function [normFeatureMatrix] = zscoreNormalize(featureMatrix)
 feature_size = size(featureMatrix);
 num_features = feature_size(1);
 num_files = feature_size(2);
-normFeatureMatrix = zeros(num_features, num_files)
+normFeatureMatrix = zeros(num_features, num_files);
 i = 1;
 
 while(i <= num_features)

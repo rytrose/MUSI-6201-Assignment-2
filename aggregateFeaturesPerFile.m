@@ -20,6 +20,7 @@ while(i < fMat_size(1) + 1)
    aggFeatureMat(mean_i) = mean(featureMat(i, :));
    aggFeatureMat(std_i) = std(featureMat(i, :));
    
+   
    i = i + 1;
 end
 

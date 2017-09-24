@@ -27,7 +27,7 @@ end
 if (m ~= 1 && n ~=1)
     error('Illegal hopSize');
 end
-[m,n] = size(fs)
+[m,n] = size(fs);
 if (m ~= 1 && n ~=1)
     error('Illegal fs');
 end
@@ -38,6 +38,7 @@ f2 = myRMS(blockedAudio);
 f3 = myZCR(blockedAudio);
 f4 = mySpectralCrest(blockedAudio);
 f5 = mySpectralFlux(blockedAudio);
+
 
 featureMat = vertcat(f1, f2, f3, f4, f5);
 end
